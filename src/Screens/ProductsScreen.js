@@ -88,7 +88,6 @@ export default function ProductsScreen({useRefresh}) {
           onChangeText={setEntry}
           onSubmitEditing={submit}
           autoFocus={true}
-          maxLength={16}
         />
       ) : (
         <></>

@@ -176,6 +176,7 @@ export default function ListProduct({name, quantity, taken, arrayIndex, listInde
           onChangeText={changeQuantity}
           onEndEditing={submitQuantity}
           selectTextOnFocus={true}
+          maxLength={3}
         />
         <View style={styles.editQuantity}>
           {editable ? (

@@ -74,15 +74,17 @@ export default function ListScreen({route, useRefresh}) {
     const formattedAllItems = [];
 
     allProducts.forEach((name, id) => {
-      const formattedName = name.toLowerCase().slice(0, text.length);
+      if (name !== null) {
+        const formattedName = name.toLowerCase().slice(0, text.length);
 
-      const isIncluded = productList.some(item => {
-        return item === null ? false : (id === item.productIndex);
-      });
+        const isIncluded = productList.some(item => {
+          return item === null ? false : (id === item.productIndex);
+        });
 
-      if (formattedTypedText === formattedName && isIncluded === false) {
-        formattedAllItems.push({name, id});
-      };
+        if (formattedTypedText === formattedName && isIncluded === false) {
+          formattedAllItems.push({name, id});
+        };
+      }
     });
 
     setAllItems(formattedAllItems);
@@ -110,9 +112,7 @@ export default function ListScreen({route, useRefresh}) {
             placeholder="List name"
             value={entry}
             onChangeText={filter}
-            onSubmitEditing={submit}
             autoFocus={true}
-            maxLength={16}
           />
           <SafeAreaView style={styles.filteredNamesView}>
             <FlatList

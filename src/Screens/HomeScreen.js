@@ -91,7 +91,6 @@ export default function HomeScreen({onLayoutRootView, useRefresh}) {
           onChangeText={setEntry}
           onSubmitEditing={submit}
           autoFocus={true}
-          maxLength={16}
         />
       ) : (
         <></>
